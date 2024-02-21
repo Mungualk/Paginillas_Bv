@@ -1,0 +1,130 @@
+html {
+    background-color: #dfdfdf;
+}
+
+body { 
+    font-family: 'Lucida Sans Unicode', sans-serif;
+    font-size: 14px;
+    background-color: #fff;
+    border: #d3d3d3 1px solid;
+    text-align: justify;
+    margin: 10px auto;
+    width: 900px;
+}
+
+h1 {
+    text-align: center;
+    color: #5f8f11;
+    letter-spacing: .2em;
+    background-image: url(img/panoramica.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding-top: 170px;
+    margin: 0;
+}
+
+h1 span {
+    color: #bf823b;
+}
+
+h2 {
+    color: #70af0a;
+    border-bottom: #cfdfb5 1px solid;
+}
+
+h3 {
+    color: #bf823b;
+    margin-bottom: 0px;
+    margin-top: 25px;
+}
+
+div.contenido {
+    border: #d3d3d3 1px solid;
+    margin: 20px 20px 10px;
+    padding: 10px 15px;
+}
+
+#menu {
+    float: left;
+    width: 100px;
+    margin: 20px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+#menu li {
+    border: #d3d3d3 1px solid;
+    background-color:  #CBE783;
+    margin-bottom: 5px;
+    font-size: 90%;
+    text-align: center;
+    line-height: 30px;
+}
+
+#menu a {
+    display: block;
+    text-decoration: none;
+    color: #4F4F4F;
+}
+
+#menu li:hover {
+    border-color: #6e9276;
+    background-color: #F6FFDF;
+}
+
+#menu li:hover a {
+    color: #000;
+}
+img.animal {
+    border: #70af0a 3px solid;
+    background-color: #bf823b;
+    padding: 2px;
+    margin: 50px 0 10px 10px;
+    float:  right;
+}
+
+table.reservas {
+    font-size: 90%;
+    background-color: #EFD3B3;
+    text-align: center;
+    margin: 10px auto;
+    width: 410px;
+    border: #bf823b 1px solid;
+
+}
+table.reservas td {
+    background-color: #efffef;
+}
+table.reservas th {
+    background-color: #efd3b3;
+    color: #5f8f11;
+}
+
+table.reservas td.titulo {
+    background-color: #d6efc2;
+}
+
+form {
+    width: 410px;
+    border: #bf823b 1px solid;
+    margin: auto;
+}
+
+form table {
+    width: 410px;
+    font-size: 90%;
+    border: #efd3b3 3px solid;
+    background-color: #efffef;
+}
+
+.texto {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #bf823b #efd3b3 #efd3b3 #bf823b;
+}
+
+.boton {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #efd3b3 #bf823b #bf823b #efd3b3;
+}
