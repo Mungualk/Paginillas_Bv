@@ -465,7 +465,7 @@ html {
     top: 0;
     right: -3rem;
     transition: all 0.4s ease;
-    /* z-index: -1; */
+    z-index: -1; 
 }
 
 .button-group span {
@@ -582,4 +582,74 @@ html {
 .gallery-img-3 {
     grid-column: 2/4;
     grid-row: 1/3;
+}
+
+/* Specials */
+
+.specials {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+}
+
+.blogs {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.container-blogs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+
+}
+
+.card-blog {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.card-blog .container-img {
+    border-radius: 2rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.button-group-blog {
+    position: absolute;
+    bottom: 1.5rem;
+    right: -2.5rem;
+    display: flex;
+    gap: 0.7rem;
+    z-index: -1;
+    transition: all 0.3rem ease;
+
+}
+
+.card-blog:hover .button-group-blog{
+    z-index: 0;
+    right: 1.5rem;
+}
+
+.button-group-blog span {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.botton-group-blog span i{
+    font-size: 1.3rem;
 }
