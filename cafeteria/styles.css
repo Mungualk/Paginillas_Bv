@@ -653,3 +653,83 @@ html {
 .botton-group-blog span i{
     font-size: 1.3rem;
 }
+
+.button-group-blog span:hover {
+    background-color: var(--primary-color);
+
+}
+
+.button-group-blog span:hover i {
+    color: #fff;
+}
+
+.content-blog h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.7rem;
+    color: var(--dark-color);
+    font-weight: 500;
+
+}
+
+.content-blog h3:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+
+}
+
+.content-blog p {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    color: #777;
+
+}
+
+.content-blog span{
+    color: var(--primary-color);
+    font-size: 1.3rem;
+
+}
+
+.btn-read-more {
+    padding: 1rem 3rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    border-radius: 2rem;
+    margin: 3rem 0 5rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-read-more:hover {
+    background-color: var(--dark-color);
+
+}
+/* footer */
+.footer {
+    background-color: var(--primary-color);
+
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 3rem;
+
+}
+
+.menu-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 30rem;
+    gap: 3rem;
+    justify-items: center;
+
+}
+
+.title-footer {
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
