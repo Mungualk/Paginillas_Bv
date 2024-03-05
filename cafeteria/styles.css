@@ -733,3 +733,89 @@ html {
     font-size: 1.6rem;
     text-transform: uppercase;
 }
+
+.contact-info, .information, .my-account, .newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.contact-info ul, .information ul, .my-account ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-info ul li, .information ul li, .my-account ul li {
+    list-style: none;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+
+}
+
+.information ul a:hover, .my-account ul li:hover {
+    color: var(--dark-color);
+    
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+
+}
+
+.social-icons span {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons span i {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.caralibro {
+    background-color: #3b5998;
+}
+
+.tuiter {
+    background-color: #00acee;
+}
+
+.yutub {
+    background-color: #c4302b;
+}
+
+.pinturillo {
+    background-color: #c8232c;
+}
+
+.instagram {
+    background: linear-gradient(to bottom left,#405de6, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #fcaf45);
+}
+
+.content p {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 300;
+}
+
+.content input {
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 2px solid #d2b495;
+    padding: 0.5rem 0 1.2rem;
+    color: var(--dark-color);
+    display: block;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    width: 100%;
+    font-family: inherit;
+}
