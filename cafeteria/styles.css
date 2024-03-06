@@ -819,3 +819,42 @@ html {
     width: 100%;
     font-family: inherit;
 }
+
+.content input::-webkit-input-placeholder {
+    color: #eee;
+
+}
+
+.content button {
+    border: none;
+    background-color: #000;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 600;
+
+}
+
+.content button:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+
+}
+
+.copyright {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    border-top: 1px solid #d2b495;
+
+}
+
+.copyright p {
+    font-weight: 400;
+    font-size: 1.6rem;
+    
+}
