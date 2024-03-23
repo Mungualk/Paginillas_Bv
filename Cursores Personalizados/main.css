@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    cursor: none;
+
+}
+
+.custom-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+
+}
+
+.site-wide {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
