@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica</title>
+    <link rel="stylesheet" href="calc.css">
+</head>
+<body>
+    <div class="container">
+        <div class="display">
+            <input id="screen" type="text" placeholder="0">
+        </div>
+        <div class="btns">
+            <div class="row">
+                <button onclick="CE();">CE</button>
+                <button onclick="fac();">x!</button>
+                <button class="btn">(</button>
+                <button class="btn">)</button>
+                <button class="btn">%</button>
+                <button onclick="AC();">AC</button>
+            </div>
+            <div class="row">
+                <button onclick="sin();">sin</button>
+                <button onclick="pi();">π</button>
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn">/</button>
+            </div>
+            <div class="row">
+                <button onclick="cos();">cos</button>
+                <button onclick="log();">log</button>
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn">*</button>
+            </div>
+            <div class="row">
+                <button onclick="tan();">tan</button>
+                <button onclick="root();">root</button>
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn">-</button>
+            </div>  
+            <div class="row">
+                <button onclick="elog()">e</button>
+                <button onclick="exp();">x <span style="position: relative; bottom: .4em; right: .1em">2</span></button>
+                <button class="btn">0</button>
+                <button class="btn">.</button>
+                <button onclick="screen.value=eval(screen.value);">=</button>
+                <button class="btn">+</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var screen = document.querySelector('#screen');
+    var btn = document.querySelectorAll('.btn');
+
+    for(item of btn)
+    {
+        item.addEventListener('click', (e) => {
+            btntext = e.target.innerText;
+            screen.value+=btntext;
+        });
+
+    }
+
+    function sin()
+    {
+        screen.value=Math.sin(screen.value);
+    }
+
+    function cos()
+    {
+        screen.value=Math.cos(screen.value);
+    }
+
+    function tan()
+    {
+        screen.value=Math.tan(screen.value);
+    }
+
+    function log()
+    {
+        screen.value = Math.log(screen.value);
+    }
+
+    function root()
+    {
+        screen.value = Math.sqrt(screen.value);
+    }
+
+    function AC()
+    {
+        screen.value = null;
+    }
+
+    function pi()
+    {
+        screen.value += Math.PI;
+    }
+
+    function fac()
+    {
+        var total = 1;
+        for (i=1; i<=screen.value; i++) 
+        {
+            total = total * i;
+        }
+        
+        screen.value = total;
+    }
+
+    function CE()
+    {
+        screen.value = screen.value.slice(0, -1);
+
+    }
+
+    function elog()
+    {
+        screen.value += Math.E;
+    }
+
+    function exp()
+    {
+        screen.value = Math.pow(screen.value, 2);
+    }
+
+</script>
+</html>
