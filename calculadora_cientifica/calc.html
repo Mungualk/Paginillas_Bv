@@ -13,12 +13,12 @@
         </div>
         <div class="btns">
             <div class="row">
-                <button onclick="CE();">CE</button>
+                <button id="ce" onclick="CE();">CE</button>
                 <button onclick="fac();">x!</button>
                 <button class="btn">(</button>
                 <button class="btn">)</button>
                 <button class="btn">%</button>
-                <button onclick="AC();">AC</button>
+                <button id="ac" onclick="AC();">AC</button>
             </div>
             <div class="row">
                 <button onclick="sin();">sin</button>
@@ -49,7 +49,7 @@
                 <button onclick="exp();">x <span style="position: relative; bottom: .4em; right: .1em">2</span></button>
                 <button class="btn">0</button>
                 <button class="btn">.</button>
-                <button onclick="screen.value=eval(screen.value);">=</button>
+                <button id="eval" onclick="screen.value=eval(screen.value);">=</button>
                 <button class="btn">+</button>
             </div>
         </div>
