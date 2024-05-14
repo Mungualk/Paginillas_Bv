@@ -1,0 +1,51 @@
+header {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    border: 5px solid #000;
+}
+
+#logo {
+    margin: 0;
+    margin-top: -25px;
+    margin-left: 10px;
+    width: 200px; 
+    height: 150px; 
+}
+
+header h1 {
+    margin: 0 -23px;
+    margin-top: 30px;
+}
+
+header p {
+    margin: 0 350px;
+    margin-top: 10px;
+    font-size: 1.3rem;
+}
+
+.container {
+    margin: 0;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+#table-types {
+    border: 5px inset #000;
+    border-spacing: 10px 10px; 
+    border-radius: 10%;
+}
+
+#table-types td {
+    border: 4px outset #000;
+    border-radius: 50%;
+}
+
+.comparison {
+    border: 5px solid;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+  

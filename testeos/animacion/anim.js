@@ -1,4 +1,3 @@
-// Some random colors
 const colors = ["#000", "#000", "#000", "#000", "#000"];
 
 const numBalls = 50;
