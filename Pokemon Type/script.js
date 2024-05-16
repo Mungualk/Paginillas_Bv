@@ -23,6 +23,14 @@ function mostrarEfectividades(nombreTipo) {
         gifContenedor = document.getElementById('spraits');
         gifContenedor.innerHTML = gif;
         break;
+    case 'poison':
+        htmlParrafo = '<tr> <td>Debilidades: </td> <td>Tierra, Psíquico </td><tr><td>Ventajas: </td><td>Hada, Planta</td>';
+        contenedor = document.getElementById('comparison-table');
+        contenedor.innerHTML = htmlParrafo;
+        gif = '<img src="/img/toxicroak.gif" alt="tox"></img>'
+        gifContenedor = document.getElementById('spraits');
+        gifContenedor.innerHTML = gif;
+        break;
     case 'dark':
         htmlParrafo = '<tr> <td>Debilidades: </td> <td>Hada, Lucha, Bicho </td><tr><td>Ventajas: </td><td>Fantasma, Psíquico: </td><tr><td>Imnunidades: </td><td>Psíquico</td></tr>';
         contenedor = document.getElementById('comparison-table');
@@ -156,7 +164,7 @@ function mostrarEfectividades(nombreTipo) {
         gifContenedor = document.getElementById('spraits');
         gifContenedor.innerHTML = gif;
         break;
-      default:
+    default:
         console.log(`No se ha encontrado información para el tipo ${nombreTipo}`);
     }
   }
