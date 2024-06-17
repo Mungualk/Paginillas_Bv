@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Validación de formulario</title>
+</head>
+        <!-- Es que todos sabemos querer, pero pocos sabemos amar -->
+
+        <!-- Dios dice que la gloria está en el cielo, y que es de los mortales el consuelo al morir  -->
+        <!-- Bendito dios, porque al tenerte yo en vida, no necesito ir al cielo tizú -->
+        <!-- Alma mía, amor de mi ilusión, la gloria eres tú... -->
+<body>
+    <div class="contenedor">
+        <div class="cabecera">
+            <h2>Validación JS</h2>
+        </div>
+        <form id="formulario" action="ejecutar.php" method="POST">
+            <div class="form-control">
+                <label for="usuario">Nombre de usuario</label>
+                <input id="usuario" type="text">
+                <p></p>
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input id="email" type="email">
+                <p></p>
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input id="password" type="password">
+                <p></p>
+            </div>
+            <div class="form-control">
+                <label for="passConfirma">Confirmar Password</label>
+                <input id="passConfirma" type="password">
+                <p></p>
+            </div>
+            <button>Enviar</button>
+        </form>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
