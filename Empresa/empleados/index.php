@@ -1,134 +1,6 @@
 <?php
-    // Si txtID tiene un valor, entonces asignarle ese valor a la variable txtID, de lo contrario, asignarle un valor vacío
-    $txtID = (isset($_POST['txtID']) ? $_POST['txtID']: "");
-    $txtNombre = (isset($_POST['txtNombre']) ? $_POST['txtNombre']: "");
-    $txtApellidoP = (isset($_POST['txtApellidoP']) ? $_POST['txtApellidoP']: "");
-    $txtApellidoM = (isset($_POST['txtApellidoM']) ? $_POST['txtApellidoM']: "");
-    $txtCorreo = (isset($_POST['txtCorreo']) ? $_POST['txtCorreo']: "");
-    $txtFoto = (isset($_FILES['txtFoto']['name']) ? $_FILES['txtFoto']['name']: "");
-
-    $accion = (isset($_POST['accion']) ? $_POST['accion']: "");
-
-    $accionagregar = "";
-    $accionModificar = $accionEliminar = $accionCancelar = "disabled";
-    $mostrarModal = false;
-
-    include ('../conexion/conexion.php');
-
-    switch ($accion) {
-        case 'btnAgregar':
-            $sentencia = $pdo -> prepare('INSERT INTO empleados (nombre, apellidop, apellidom, correo, foto) VALUES (:nombre, :apellidop, :apellidom, :correo, :foto);');
-
-            $sentencia -> bindParam(':nombre', $txtNombre);
-            $sentencia -> bindParam(':apellidop', $txtApellidoP);
-            $sentencia -> bindParam(':apellidom', $txtApellidoM);
-            $sentencia -> bindParam(':correo', $txtCorreo);
-
-            $fecha = new DateTime();
-            $nombreArchivo = ($txtFoto != "") ? $fecha -> getTimestamp() . '_' . $_FILES['txtFoto']['name'] : "imagen.jpg";
-
-            $tmpFoto = $_FILES['txtFoto']['tmp_name'];
-
-            if ($tmpFoto != '') {
-                move_uploaded_file($tmpFoto, '../imagenes/' . $nombreArchivo);
-            }
-
-            $sentencia -> bindParam(':foto', $nombreArchivo);
-
-            $sentencia -> execute();
-
-            header('Location: index.php');
-        break;
-        case 'btnModificar':
-            $sentencia = $pdo -> prepare("UPDATE empleados SET nombre=:nombre, apellidop=:apellidop, apellidom=:apellidom, correo=:correo WHERE id=:id");
-
-            $sentencia -> bindParam(':nombre', $txtNombre);
-            $sentencia -> bindParam(':apellidop', $txtApellidoP);
-            $sentencia -> bindParam(':apellidom', $txtApellidoM);
-            $sentencia -> bindParam(':correo', $txtCorreo);
-            $sentencia -> bindParam(':id', $txtID);
-
-            $sentencia -> execute();
-
-            $fecha = new DateTime();
-            $nombreArchivo = ($txtFoto != "") ? $fecha -> getTimestamp() . '_' . $_FILES['txtFoto']['name'] : "imagen.jpg";
-
-            $tmpFoto = $_FILES['txtFoto']['tmp_name'];
-
-            if ($tmpFoto != '') {
-                move_uploaded_file($tmpFoto, '../imagenes/' . $nombreArchivo);
-
-                $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
-
-                print_r($empleado);
-
-                if (isset($empleado['foto'])) {
-                    if (file_exists('../imagenes/' . $empleado['foto'])) 
-                    {
-                        if($iten['foto'] != 'imagen.jpg')
-                        unlink('../imagenes/' . $empleado['foto']);
-                    }
-                }
-
-                $sentencia = $pdo -> prepare('UPDATE empleados SET foto=:foto WHERE id=:id');
-
-                $sentencia -> bindParam(':foto', $nombreArchivo);
-                $sentencia -> bindParam(':id', $txtID);
-
-                $sentencia -> execute();
-            }
-
-            header('Location: index.php');
-
-            echo $txtID;
-            echo 'Presionaste btnModificar';
-        break;
-        case 'btnEliminar':
-            $sentencia = $pdo -> prepare('SELECT foto FROM empleados WHERE id=:id');
-
-            $sentencia -> bindParam(':id', $txtID);
-
-            $sentencia -> execute();
-
-            $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
-
-            print_r($empleado);
-
-            if (isset($empleado['foto']) && $item['foto' != 'imagen.jpg']) {
-                if (file_exists('../imagenes/' . $empleado['foto'])) {
-                    unlink('../imagenes/' . $empleado['foto']);
-                }
-            }
-            
-            $sentencia = $pdo -> prepare("DELETE FROM empleados WHERE id=:id");
-
-            $sentencia -> bindParam(':id', $txtID);
-
-            $sentencia -> execute();
-
-            header('Location: index.php');
-
-            echo $txtID;
-            echo 'Presionaste btnEliminar';
-        break;
-        case 'btnCancelar':
-
-            header('Location: index.php');
-        break;
-
-        case "Seleccionar":
-            $accionAgregar = "disabled";
-            $accionModificar = $accionEliminar = $accionCancelar = "";
-            $mostrarModal = true;
-        break;
-    }
-
-    $sentencia = $pdo -> prepare('SELECT * FROM empleados');
-    $sentencia -> execute();
-    $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
-    // print_r($listaEmpleados);
+    require 'empleados.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -156,15 +28,27 @@
                                 <div class="row g-3">
                                     <div class="form-group col-md-4">
                                         <label for="">Nombre(s): </label>
-                                        <input type="text" name="txtNombre" required class="form-control" value="<?php echo $txtNombre ?>" placeholder="" id="txtNombre" require=""><br>
+                                        <input type="text" name="txtNombre" class="form-control" <?php echo (isset($error['nombre']))?"is-invalid":""; ?> value="<?php echo $txtNombre ?>" placeholder="" id="txtNombre" require="">
+                                        <div class="invalid-feedback">
+                                            <?php
+                                                echo (isset($error['nombre'])) ? $error['nombre']:""; 
+                                            ?>
+                                        </div>
+                                        <br>
                                     </div>
                                     <div class = "form-group col-md-4">
                                         <label for="">Apellido Paterno: </label>
-                                        <input type="text" name="txtApellidoP" required class="form-control" value="<?php echo $txtApellidoP ?>" placeholder="" id="txtApellidoP" require=""><br>
+                                        <input type="text" name="txtApellidoP" class="form-control" <?php echo (isset($error['apellidop']))?"is-invalid":""; ?>value="<?php echo $txtApellidoP ?>" placeholder="" id="txtApellidoP" require="">
+                                        <div class="invalid-feedback">
+                                            <?php
+                                                echo (isste($error['apellidop'])) ? $error['apellidop'] : "";
+                                            ?>
+                                        </div>
+                                        <br>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="">Apellido Materno: </label>
-                                        <input type="text" name="txtApellidoM" required class="form-control" value="<?php echo $txtApellidoM ?>" placeholder="" id="txtApellidoM" require=""><br>
+                                        <input type="text" name="txtApellidoM" class="form-control" value="<?php echo $txtApellidoM ?>" placeholder="" id="txtApellidoM" require=""><br>
                                     </div>
                                 </div>
                             </div>
@@ -179,17 +63,17 @@
                         <div class="modal-footer">
                             <button value="btnAgregar" <?php echo $accionAgregar ?> class = "btn btn-success" type="submit" name="accion">Agregar</button>
                             <button value="btnModificar" <?php echo $accionModificar ?> class = "btn btn-warning" type="submit" name="accion">Modificar</button>
-                            <button value="btnEliminar" <?php echo $accionEliminar ?> class = "btn btn-danger" type="submit" name="accion">Eliminar</button>
+                            <button value="btnEliminar" <?php echo $accionEliminar ?> class = "btn btn-danger" type="submit" name="accion" onclick="return Confirmar('¿Realmente te vez en la necesidad de borrar ese registro? Piensalo, no volverá');">Eliminar</button>
                             <button value="btnCancelar" <?php echo $accionCancelar ?> class = "btn btn-primary" type="submit" name="accion">Cancelar</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar registro +</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar registro +</button> <br> <br>
         </form>
         <div class="row">
-            <table>
-                <thead>
+            <table class="table table-hover table-bordered">
+                <thead class="thead-dark">
                     <tr>
                         <th>Foto</th>
                         <th>Nombre completo</th>
@@ -211,7 +95,7 @@
                             <input type="hidden" name="txtCorreo" value="<?php echo $empleado['correo'] ?>">
                             <input type="hidden" name="txtFoto" value="<?php echo $empleado['foto'] ?>">
                             <input type="submit" value="Seleccionar" name="accion">
-                            <button value="btnEliminar" type="submit" name="accion">Eliminar</button>
+                            <button value="btnEliminar" type="submit" name="accion"  onclick="return Confirmar('¿Realmente te vez en la necesidad de borrar ese registro? Piensalo, no volverá');">Eliminar</button>
                         </form>
                     </td>
                 </tr>
@@ -222,7 +106,13 @@
             <script>
                 $('#exampleModal').modal('show');
             </script>
-            <?php } ?>
+        <?php } ?>
+        <script>
+            function Confirmar(Mensaje)
+            {
+                return (confirm(Mensaje)) ? true : false;
+            }
+        </script>
     </div>
 </body>
 </html>
