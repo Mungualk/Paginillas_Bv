@@ -143,4 +143,3 @@
     $sentencia -> execute();
     $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
     // print_r($listaEmpleados);
-?>

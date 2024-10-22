@@ -41,7 +41,7 @@
                                         <input type="text" name="txtApellidoP" class="form-control" <?php echo (isset($error['apellidop']))?"is-invalid":""; ?>value="<?php echo $txtApellidoP ?>" placeholder="" id="txtApellidoP" require="">
                                         <div class="invalid-feedback">
                                             <?php
-                                                echo (isste($error['apellidop'])) ? $error['apellidop'] : "";
+                                                echo (isset($error['apellidop'])) ? $error['apellidop'] : "";
                                             ?>
                                         </div>
                                         <br>
