@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    if($_POST)
+    {
+        $mensaje = 'Usuario o constraseña incorrectos';
+        if($_POST['usuario']=='admin' && $_POST['password'] == '1234')
+        {
+            $_SESSION['usuario'] = $_POST['usuario'];
+            header('location: secciones/index.php');
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,16 +23,34 @@
 <body>
     <div class="container">
         <div class="row">
+            <div class="col-md-4">
+
+            </div>
             <form action="" method="post">
                 <div class="card">
                     <div class="card-header">
                         Inicio de sesión 
                     </div>
                     <div class="card-body">
-                        <label for="">Usuario</label>
-                        <input type="text">
-                        <label for="">Contraseña</label>
-                        <input type="password">
+                        <?php
+                            if(isset($mensaje)){ 
+                            ?>
+                            <div class="alert alert-danger" role="alert">
+                                <strong><?php echo $mensaje ?></strong>
+                            </div>
+                            <?php }
+                        ?>
+                        <div class="mb-3">
+                            <label for="">Usuario</label>
+                            <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpid" placeholder="usuario">
+                            <small id="helpid" class="text-muted">Escribe tu usuario</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Contraseña</label>
+                            <input type="password" class="form-control" name="password" id="password" aria-describedby="helpid" placeholder="password">
+                            <small id="helpid" class="text-muted">Escribe tu contraseña</small>
+                        </div>
+
                         <button>Iniciar sesión</button>
                     </div>
                 </div>
