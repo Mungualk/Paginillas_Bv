@@ -26,7 +26,7 @@
             <div class="col-md-4">
 
             </div>
-            <form action="" method="post">
+            <form action="secciones/index.php" method="post">
                 <div class="card">
                     <div class="card-header">
                         Inicio de sesión 
@@ -51,7 +51,7 @@
                             <small id="helpid" class="text-muted">Escribe tu contraseña</small>
                         </div>
 
-                        <button>Iniciar sesión</button>
+                        <button >Iniciar sesión</button>
                     </div>
                 </div>
             </form>
