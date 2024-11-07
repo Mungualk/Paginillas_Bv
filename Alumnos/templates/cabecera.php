@@ -10,11 +10,14 @@
 <body>
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home</a>
-            <a class="nav-item nav-link" href="#">Sht happens</a>
+            <a class="nav-item nav-link active" href="index.php">Inicio</a>
+            <a class="nav-item nav-link" href="../secciones/vista_alumnos.php">Alumnos</a>
+            <a class="nav-item nav-link" href="../secciones/vista_cursos.php">Cursos</a>
+            <a class="nav-item nav-link" href="#">Cerrar sesión</a>
         </div>
     </nav>
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <div class="row">
                 
