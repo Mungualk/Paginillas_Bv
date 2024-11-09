@@ -26,7 +26,7 @@
             <div class="col-md-4">
 
             </div>
-            <form action="secciones/index.php" method="post">
+            <form action="" method="post">
                 <div class="card">
                     <div class="card-header">
                         Inicio de sesión 

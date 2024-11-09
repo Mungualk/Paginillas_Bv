@@ -1,5 +1,5 @@
-<?php include('../template/cabecera.php'); ?>
+<?php include('../templates/cabecera.php'); ?>
 
 Contenido de la sección index.php (inicio de la aplicación)
 
-<?php include('../template/pie.php'); ?>
+<?php include('../templates/pie.php'); ?>
