@@ -1,5 +1,6 @@
 <?php 
     include('../templates/cabecera.php');
+    include('../secciones/cursos.php');
 ?>
 <div class="col-md-5">
     <form action="" method="post">
@@ -18,9 +19,9 @@
                 </div>
 
                 <div class="btn-group" role="group" aria-label="">
-                    <button type="button" class="btn btn-success">Agregar</button>
-                    <button type="button" class="btn btn-warning">Modificar</button>
-                    <button type="button" class="btn btn-danger">Desintegrar</button>
+                    <button type="submit" name="accion" value="agregar" class="btn btn-success">Agregar</button>
+                    <button type="submit" name="accion" value="modificar" class="btn btn-warning">Modificar</button>
+                    <button type="submit" name="accion" value="eliminar" class="btn btn-danger">Desintegrar</button>
                 </div>
 
             </div>

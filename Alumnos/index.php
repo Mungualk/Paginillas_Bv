@@ -42,16 +42,16 @@
                         ?>
                         <div class="mb-3">
                             <label for="">Usuario</label>
-                            <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpid" placeholder="usuario">
+                            <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpid" placeholder="Usuario">
                             <small id="helpid" class="text-muted">Escribe tu usuario</small>
                         </div>
                         <div class="mb-3">
                             <label for="">Contraseña</label>
-                            <input type="password" class="form-control" name="password" id="password" aria-describedby="helpid" placeholder="password">
+                            <input type="password" class="form-control" name="password" id="password" aria-describedby="helpid" placeholder="Contraseña">
                             <small id="helpid" class="text-muted">Escribe tu contraseña</small>
                         </div>
 
-                        <button >Iniciar sesión</button>
+                        <button>Iniciar sesión</button>
                     </div>
                 </div>
             </form>
