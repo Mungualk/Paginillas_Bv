@@ -11,11 +11,11 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label for="id" class="for-label">ID</label>
-                    <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="ID">
+                    <input type="text" class="form-control" name="id" id="id" value="<?php echo $id; ?>" aria-describedby="helpId" placeholder="ID">
                 </div>
                 <div class="mb-3">
                     <label for="nombre_curso" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="nombre_curso" id="nombre_curso" aria-describedby="helpID" placeholder="Nombre del curso lol">
+                    <input type="text" class="form-control" name="nombre_curso" id="nombre_curso" value="<?php echo $nombre_curso; ?>" aria-describedby="helpID" placeholder="Nombre del curso lol">
                 </div>
 
                 <div class="btn-group" role="group" aria-label="">
@@ -43,7 +43,12 @@
             <tr>
                 <td> <?php echo $curso['id']; ?> </td>
                 <td> <?php echo $curso['nombre']; ?> </td>
-                <td> Seleccionar </td>
+                <td> 
+                    <form action="" method="post">
+                        <input type="hidden" name="id" id="id" value="<?php echo $curso['id'] ?>">
+                        <input type="submit" value="seleccionar" name="accion" class="btn btn-info">
+                    </form> 
+                </td>
             </tr>
             <?php } ?>
         </tbody>
